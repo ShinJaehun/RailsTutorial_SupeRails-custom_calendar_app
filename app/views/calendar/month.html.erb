@@ -1,0 +1,10 @@
+<%= render 'calendar/month', date: @date do |day| %>
+  <%= day.strftime("%d") %>
+  <%# @events.where(start_date: day.all_day).each do |event| %>
+  <% @events[day]&.each do |event| %>
+    <div class="rounded-md bg-rose-400">
+      <%= event.id %>
+      <%= event.name %>
+    </div>
+  <% end %>
+<% end %>
